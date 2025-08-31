@@ -11,10 +11,11 @@ COPY go.mod go.sum ./
 COPY vendor ./vendor
 
 # Copy the rest of the source code
-COPY . .
+COPY cmd ./cmd
+COPY internal ./internal
 
 # Build the application using the vendored dependencies
-RUN CGO_ENABLED=0 GOOS=linux go build -mod=vendor -o /app/godoctor .
+RUN CGO_ENABLED=0 GOOS=linux go build -mod=vendor -o /app/godoctor ./cmd/godoctor   
 
 # Use a minimal base image for the final image
 FROM alpine:latest
