@@ -25,3 +25,4 @@ All Go code **must** be formatted with `gofmt` before being submitted.
 
 # Agent Guidelines
 - **Reading URLs:** ALWAYS read URLs provided by the user. They are not optional.
+- **Go Documentation:** When retrieving documentation about Go packages or symbols, always prefer using the `godoc` tool. Only use `WebFetch` or `GoogleSearch` if `godoc` does not provide a clear or sufficient answer.
