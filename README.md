@@ -23,7 +23,7 @@ This project demonstrates a Model Context Protocol (MCP) server implemented in G
 │   └── main.go
 │   └── go.mod
 ├── go.mod                # Go module file for the MCP server
-├── main.go               # Source code for the MCP server
+├── cmd/main.go           # Source code for the MCP server
 └── README.md             # This file
 ```
 ## How to Run the Server using Docker
