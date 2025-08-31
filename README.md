@@ -26,6 +26,18 @@ This project demonstrates a Model Context Protocol (MCP) server implemented in G
 ├── main.go               # Source code for the MCP server
 └── README.md             # This file
 ```
+## How to Run the Server using Docker
+
+The simplest way to use the MCP Server Prompt Generator For Devs is through Docker:
+
+```bash
+docker run --rm -i elvisassis/mcp-godoc
+```
+
+This command:
+- Downloads the Docker image (if not yet locally available)
+- Starts the server in interactive mode (-i)
+- Automatically removes the container after termination (--rm)
 
 ## Building the Project (Developer Perspective)
 
@@ -114,6 +126,82 @@ If you wish to test the MCP server directly without the CLI client, you can pipe
   echo '{"jsonrpc":"2.0","id":3,"method":"tools/call","params":{"name":"godoc","arguments":{"package":"fmt"}}}'
 ) | ./bin/godoctor 2>&1
 ```
+
+## How to Register the MCP Server on Different Platforms
+
+### 1. Registration on Claude Desktop
+
+1. Open Claude Desktop
+2. Click on the Claude menu (in the upper left corner)
+3. Select "Settings..."
+4. Click on "Developer" in the side menu
+5. Click on "Edit Config"
+6. Add the configuration for the MCP server:
+
+```json
+{
+  "mcpServers": {
+    "mcp-prompts-for-devs": {
+      "command": "docker",
+      "args": ["run", "--rm", "-i", "elvisassis/mcp-godoc"]
+    }
+  }
+}
+```
+
+7. Save the file and restart Claude Desktop
+8. Verify if the server is available by clicking on the hammer icon in the input field
+
+### 2. Registration on Cursor
+
+1. Open the Cursor IDE
+2. Access the "Settings" menu (or use Ctrl+,)
+3. Look for "MCP Servers" in the settings
+4. Click on "Edit in settings.json"
+5. Add to the configuration file:
+
+```json
+"mcp.servers": {
+  "mcp-prompts-for-devs": {
+    "command": "docker",
+    "args": ["run", "--rm", "-i", "elvisassis/mcp-godoc"]
+  }
+}
+```
+
+6. Save the file
+7. Restart Cursor
+
+### 3. Registration on VSCode
+
+1. Install the "Claude AI Assistant" extension for VSCode
+2. Open VSCode settings (Ctrl+,)
+3. Search for "Claude > Mcp: Servers" 
+4. Click on "Edit in settings.json"
+5. Add to the configuration file:
+
+```json
+"claude.mcp.servers": {
+  "mcp-prompts-for-devs": {
+    "command": "docker",
+    "args": ["run", "--rm", "-i", "elvisassis/mcp-godoc"]
+  }
+}
+```
+### 4. Registration on Gemini CLI
+
+1. Create a .gemini/settings.json file in the project root
+2. Now add the following content to the new file
+```json
+"mcpServers": {
+    "godoctor": {
+        "command": "docker",
+        "args": ["run", "--rm", "-i", "elvisassis/mcp-godoc"]
+    }
+  }
+```
+6. Save the file
+7. Restart Gemini CLI
 
 ## License
 
