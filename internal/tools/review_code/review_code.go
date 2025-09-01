@@ -51,7 +51,7 @@ func CodeReviewHandler(ctx context.Context, req *mcp.CallToolRequest, args CodeR
 	// Criar cliente Gemini
 	client, err := genai.NewClient(ctx, &genai.ClientConfig{
 		APIKey:  apiKey,
-		Backend: genai.BackendGeminiAPI, // backend correto
+		Backend: genai.BackendGeminiAPI,
 	})
 	if err != nil {
 		return &mcp.CallToolResult{

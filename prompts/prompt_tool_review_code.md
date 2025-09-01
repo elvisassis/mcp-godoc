@@ -1,0 +1,4 @@
+Usando a ferramenta use-prompt com o prompt dev-pt sua tarefa é:
+Adicionar uma nova ferramenta ao meu projeto chamada code_review. Essa ferramenta deve usar a API Gemini para analisar código Go e fornecer uma lista de melhorias em formato JSON, de acordo com as melhores práticas aceitas pela comunidade Go. A ferramenta deve receber o conteúdo do código Go e uma dica opcional como entrada. A dica será usada para fornecer orientações adicionais ao revisor de IA, como "foco na segurança" ou "ajude-me a simplificar este código". Atualize o servidor para incluir essa nova ferramenta e modifique o cliente CLI para adicionar um comando de revisão para usá-la.
+
+Use este SDK para chamar Gemini: https://github.com/googleapis/go-genai
